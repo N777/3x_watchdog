@@ -1,0 +1,12 @@
+services:
+  xray-restart:
+    build: .
+    container_name: xray-restart
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      MIN_INTERVAL: "1800"
+      MAX_INTERVAL: "5400"
+      REQUEST_TIMEOUT: "60"
+    init: true
